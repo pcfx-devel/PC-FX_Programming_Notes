@@ -12,7 +12,7 @@ programmers and multi-system programmers can have quick access to various quick-
 questions they may have.  The repository is intended to start small and grow over time.
 
 
-## Developmnet Tools
+## Development Tools
 
 While the PC-FXGA board and tools were originally created in 1996 to promote development,
 very few of these are in the hands of developers, and the tools generally require a 1996-era

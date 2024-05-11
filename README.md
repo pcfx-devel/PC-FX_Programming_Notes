@@ -21,10 +21,10 @@ separate section devoted to the use of PC-FXGA for development.
 
 The modern tools which will be referenced in this repository are:
 These can be found here:\
-![https://github.com/jbrandwood/v810-gcc](https://github.com/jbrandwood/v810-gcc)\
-![https://github.com/jbrandwood/pcfxtools](https://github.com/jbrandwood/pcfxtools)\
-![https://github.com/jbrandwood/liberis](https://github.com/jbrandwood/liberis)\
-![https://github.com/pcfx-devel/PC-FX_Programming_Tools](https://github.com/pcfx-devel/PC-FX_Programming_Tools)
+[https://github.com/jbrandwood/v810-gcc](https://github.com/jbrandwood/v810-gcc)\
+[https://github.com/jbrandwood/pcfxtools](https://github.com/jbrandwood/pcfxtools)\
+[https://github.com/jbrandwood/liberis](https://github.com/jbrandwood/liberis)\
+[https://github.com/pcfx-devel/PC-FX_Programming_Tools](https://github.com/pcfx-devel/PC-FX_Programming_Tools)
 
 Some of the above tools are not currently held by the pcfx-devel organization, but
 may soon be available here - either due to transfer, or by fork.

@@ -88,16 +88,16 @@ push them on the stack if they are used within the function.
 
 ## External Links
 
-[Daifukkat.su](http://daifukkat.su/pcfx/) - This is a translation of technical data from Buppu's PC-FXGA pages (a Japanese site)
-[Buppu's PC-FXGA page](https://hp.vector.co.jp/authors/VA007898/pcfxga/) - Originals of the above
-[Matej Horvat's site](https://matejhorvat.si/en/pcfx/index.htm) - Various information including a homebrew game
+- [Daifukkat.su](http://daifukkat.su/pcfx/) - This is a translation of technical data from Buppu's PC-FXGA pages (a Japanese site)
+- [Buppu's PC-FXGA page](https://hp.vector.co.jp/authors/VA007898/pcfxga/) - Originals of the above
+- [Matej Horvat's site](https://matejhorvat.si/en/pcfx/index.htm) - Various information including a homebrew game
 
-[Thread discussing SCSI commands](https://pcengine.proboards.com/thread/1228/pce-pc-scsi-rom-commands)
+- [Thread discussing SCSI commands](https://pcengine.proboards.com/thread/1228/pce-pc-scsi-rom-commands)
 
 
 ### Japanese PC-FX and PC-FXGA pages:
 
-[fenix.ne.jp/~fez](http://www.fenix.ne.jp/~fez/soft/fxga/)
-[FX-ron](https://www2s.biglobe.ne.jp/tetuya/FXHP/fxron.html)
-[MIX2AVI](https://web.archive.org/web/20210128020037/http://hwbb.gyao.ne.jp/soltin/mix2avi.html)
+- [fenix.ne.jp/~fez](http://www.fenix.ne.jp/~fez/soft/fxga/)
+- [FX-ron](https://www2s.biglobe.ne.jp/tetuya/FXHP/fxron.html)
+- [MIX2AVI](https://web.archive.org/web/20210128020037/http://hwbb.gyao.ne.jp/soltin/mix2avi.html)
 

@@ -70,7 +70,6 @@ Notwithstanding the above for parameter-passing, some registers are BY CONVENTIO
 variables and each function is free to destry them, without pushing them on the stack - so
 it is the calling function's responsibility to push them on the stack if needed.
  - r6-r19 are "caller saved"
- - r26-r29 are propsed to be "caller saved" in future
 
 Some regiaters are BY CONVENTION preserved, meaning that called functions are obligated to
 push them on the stack if they are used within the function.

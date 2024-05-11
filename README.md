@@ -76,7 +76,7 @@ push them on the stack if they are used within the function.
  - r20-r29 are "callee saved"
 
 
-### Including/Enbedding/Linking a binary file into your project
+### Including/Embedding/Linking a binary file into your project
 
 [Linking with a binary object file](https://pcengine.proboards.com/post/16767)
 
@@ -106,7 +106,7 @@ may provide confusing results which are incorrect but may appear "nearly" correc
 ### Internal Memory
 
 | From Address | To Address | Contents |
-|:------------:|:----------:|:--------:|
+|:------------:|:----------:|:--------|
 | 0x00000000 | 0x00007FFF | RAM (reserved for what use ? )  |
 | 0x00000000 | 0x001FFFFF | 2MB RAM; program start/user memory is normally at 0x8000 |
 | 0x00200000 | 0xDFFFFFFF | (**To Be Documented**) |

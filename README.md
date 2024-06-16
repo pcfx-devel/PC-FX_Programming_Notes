@@ -31,23 +31,24 @@ may soon be available here - either due to transfer, or by fork.
 
 ### Building the Build Environment
 
- 1. Create an executable folder (i.e. ~/devel/pcfx/bin ), and put this in your path
+ 1. Create an executable folder (i.e. $(HOME)/devel/pcfx/bin ), and put this in your path
  2. Clone the v810-gcc repository to your local development machine and performe a build based on the included instructions.
  3. Once it builds successfully, the output files will be in the "(v810-gcc repository)/v810-gcc" folder; move this into the binary folder above.
-(Following the above example, it would be ~/devel/pcfx/bin/v810-gcc )
+(Following the above example, it would be $(HOME)/devel/pcfx/bin/v810-gcc )
  4. Clone the pcfxtools repository locally and build it with "make". In order to put the outputs into the same executable folder, you will need to
 run "make install" with the "DSTDIR" variable set. This can be set in the command line with:
-```make --eval=DSTDIR=~/devel/pcfx/bin install
+```
+make --eval=DSTDIR=$(HOME)/devel/pcfx/bin install
 ```
 OR, you can use the script in this repoistory. A script has been built and placed in this repository to build pcfxtools, and to place the outputs in library locations.
    * Download this script
    * Update the key environment variables at the top of the script
-   * Run the script from the parent folder of the pcfxtools repository (i.e. if pcfxtools is '~/devel/pcfxtools', then run the script from '~/devel')
+   * Run the script from the parent folder of the pcfxtools repository (i.e. if pcfxtools is '$(HOME)/devel/pcfxtools', then run the script from '$(HOME)/devel')
  5. Clone the liberis repository locally. This makefile has many separate operations, and it will require some external variables to be set in order to do most of them.
 A script has been built and placed in this repository to build liberis, all the examples, and to place the outputs in library locations.
    * Download this script
    * Update the key environment variables at the top of the script
-   * Run the script from the parent folder of the liberis repository (i.e. if liberis is '~/devel/liberis', then run the script from '~/devel')
+   * Run the script from the parent folder of the liberis repository (i.e. if liberis is '$(HOME)/devel/liberis', then run the script from '$(HOME)/devel')
 
 
 ## Hardware Register Usage and Conventions

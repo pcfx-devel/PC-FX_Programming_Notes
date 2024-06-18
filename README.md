@@ -51,7 +51,28 @@ The **liberis-build.sh** script has been placed in this repository to build libe
    * Run the script from the parent folder of the liberis repository (i.e. if liberis is '$(HOME)/devel/liberis', then run the script from '$(HOME)/devel')
 
 
-## Hardware Register Usage and Conventions
+## V810 CPU and the GNU Compiler
+
+### Alignment
+
+#### Code Alignment
+
+Code alignment: "Bit 0 of the PC is fixed to 0, and execution cannot branch to an odd address. The contents of
+the PC is initialized to FFFFFFF0H at reset."
+
+This means that all code must aligned to half-word or full-word boundaries.
+
+#### Data Alignment
+
+Data alignment: "With the V810 family, word data must be aligned at the word boundary (with the lower 2 bits of the address
+being 0), and half word data must be aligned at the halfword boundary (with the lower 1 bit of the address being
+0). Unless aligned, the lower bit(s) (2 bits in the case of word data and 1 bit in the case of halfword data) is
+automatically masked 0 for access."
+
+Because of this, misaligned reads and writes (usually in assembler, to variables with improperly-deifned alignment,
+may provide confusing results which are incorrect but may appear "nearly" correct.
+
+### Hardware Register Usage and Conventions
 
 For an overview of how HARDWARE uses the V810's 32 registers, first look at the 
 [V810 Manual](Manuals/V810_Users_Manual.pdf), Chapter 2, "Register Set" (starting on page 6).
@@ -101,28 +122,39 @@ push them on the stack if they are used within the function.
 
 [Linking with a binary object file](https://pcengine.proboards.com/post/16767)
 
+### Making an Executable Program
 
-### Alignment
+Liberis contains two two key pieces of the puzzle to make programs which can be run like other software on the system:
+a linker script and a startup stub program.
 
-#### Code Alignment
+#### Linker Script
 
-Code alignment: "Bit 0 of the PC is fixed to 0, and execution cannot branch to an odd address. The contents of
-the PC is initialized to FFFFFFF0H at reset."
+The linker script is $(LIBERIS)/ldscripts/v810.x . It defines what sections are relevant to the program, and where to
+position them in memory. As this is a large and complex topic, the reader should look into the gcc link process further
+before considernig making any changes.
 
-This means that all code must aligned to half-word or full-word boundaries.
+#### Startup Stub
 
-#### Data Alignment
+The startup stub program is $(LIBERIS)/src/crt0.S .  This program executes as a startup, prior to executing your
+program's main().  crt0.S sets up the stack pointer and clears memory in preparation to start main() .
 
-Data alignment: "With the V810 family, word data must be aligned at the word boundary (with the lower 2 bits of the address
-being 0), and half word data must be aligned at the halfword boundary (with the lower 1 bit of the address being
-0). Unless aligned, the lower bit(s) (2 bits in the case of word data and 1 bit in the case of halfword data) is
-automatically masked 0 for access."
+Note that at present, crt0.S (and the link script) are set up for single program loading (i.e. not programs loaded
+in sequence as a game progresses).
 
-Because of this, misaligned reads and writes (usually in assembler, to variables with improperly-deifned alignment,
-may provide confusing results which are incorrect but may appear "nearly" correct.
+#### "Chained Execution" Programs
+
+Although no examples of chained-execution programs exist (i.e. one program which loads another program from disc, then
+executes it), this will eventually be made available.
+
+The current "pcfx-cdlink" program (in pcfxtools) doesn't support multiple programs.
+
+The "isolink" disc assembly program used by HuC (for PC Engine) will eventually replace this. "isolink" can assemble
+a series of executable programs in sequence on disc, and maintain references to each of them in the second sector of the
+disc's data track.  crt0.S does take action to preserve this index, but doesn't currently support loading of additional
+programs, or handing off of data from one program to the next.
 
 
-## Memory Map
+## PCFX Memory Map
 
 ### Internal Memory
 
@@ -153,6 +185,8 @@ the r0 "zero" register.
 | From Address | To Address | Contents |
 |:------------:|:----------:|:--------:|
 | 0x00000000 | 0xFFFFFFFF | (**To Be Documented**) |
+
+
 
 
 ## External Links

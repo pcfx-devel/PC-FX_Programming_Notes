@@ -111,7 +111,7 @@ x = function(a, b, c, d, e);
 Notwithstanding the above for parameter-passing, some registers are BY CONVENTION 'scratch'
 variables and each function is free to destroy them, without pushing them on the stack - so
 it is the calling function's responsibility to push them on the stack if needed.
- - r6-r19 are "caller saved"
+ - r6-r19, and r30 are "caller saved"
 
 Some regiaters are BY CONVENTION preserved, meaning that called functions are obligated to
 push them on the stack if they are used within the function.

@@ -160,10 +160,12 @@ programs, or handing off of data from one program to the next.
 
 | From Address | To Address | Contents |
 |:------------:|:----------:|:--------|
-| 0x00000000 | 0x00007FFF | RAM (reserved for what use ? )  |
+| 0x00000000 | 0x00007BFF | RAM (general-purpose)  |
+| 0x00007C00 | 0x00007DFF | RAM (reserved for 'isolink' directory use)  |
+| 0x00007E00 | 0x00007FFF | RAM (reserved for BIOS use )  |
 | 0x00000000 | 0x001FFFFF | 2MB RAM; program start/user memory is normally at 0x8000 |
 | 0x00200000 | 0xDFFFFFFF | (**To Be Documented**) |
-| 0xE0000000 | 0xE000FFFF | (32KB) PC-FX internal backup memory; would be 64KB, only uses every second byte |
+| 0xE0000000 | 0xE000FFFF | (32KB) PC-FX internal backup memory; would be 64KB, but only uses every second byte |
 | 0xE0010000 | 0xE7FFFFFF | Unused - but some could have been allocated for more internal memory |
 | 0xE8000000 | 0xE8FFFFFF | (8MB) FX-BMP memory; would be 16MB, but only uses every second byte |
 | 0xE9000000 | 0xE9FFFFFF | FX-BMP memory, but not usable - key address line not on bus |

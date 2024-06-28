@@ -156,7 +156,7 @@ programs, or handing off of data from one program to the next.
 
 ## PCFX Memory Map
 
-### Internal Memory
+### Internal Main Memory
 
 | From Address | To Address | Contents |
 |:------------:|:----------:|:--------|
@@ -164,13 +164,22 @@ programs, or handing off of data from one program to the next.
 | 0x00007C00 | 0x00007DFF | RAM (reserved for 'isolink' directory use)  |
 | 0x00007E00 | 0x00007FFF | RAM (reserved for BIOS use )  |
 | 0x00000000 | 0x001FFFFF | 2MB RAM; program start/user memory is normally at 0x8000 |
-| 0x00200000 | 0xDFFFFFFF | (**To Be Documented**) |
+| 0x00200000 | 0x9FFFFFFF | (**To Be Documented - includes many I/O areas and FX-SCSI memory area**) |
+| 0xA0000000 | 0xA3FFFFFF | HuC6261 - To be documented separately |
+| 0xA4000000 | 0xA7FFFFFF | HuC6270(#0) - To be documented separately |
+| 0xA8000000 | 0xABFFFFFF | HuC6270(#1) - To be documented separately |
+| 0xAC000000 | 0xAFFFFFFF | HuC6272 - To be documented separately |
+| 0xB0000000 | 0xB3FFFFFF | HuC6261 - To be documented separately |
+| 0xB4000000 | 0xB7FFFFFF | HuC6270(#0) - To be documented separately |
+| 0xB8000000 | 0xBBFFFFFF | HuC6270(#1) - To be documented separately |
+| 0xBC000000 | 0xBFFFFFFF | HuC6272 - To be documented separately |
+| 0xC0000000 | 0xDFFFFFFF | (**Reserved**) |
 | 0xE0000000 | 0xE000FFFF | (32KB) PC-FX internal backup memory; would be 64KB, but only uses every second byte |
 | 0xE0010000 | 0xE7FFFFFF | Unused - but some could have been allocated for more internal memory |
 | 0xE8000000 | 0xE8FFFFFF | (8MB) FX-BMP memory; would be 16MB, but only uses every second byte |
 | 0xE9000000 | 0xE9FFFFFF | FX-BMP memory, but not usable - key address line not on bus |
 | 0xEA000000 | 0xEBFFFFFF | FX-BMP battery (bit 0 = '0' for low battery) |
-| 0xEC000000 | 0xFFEFFFFF | (**To Be Documented**) |
+| 0xEC000000 | 0xFFEFFFFF | (**Reserved / To Be Documented**) |
 | 0xFFF00000 | 0xFFFFFFFF | PC-FX BIOS ROM (1MB) |
 | 0xFFFFFE00 | 0xFFFFFFFF | Interrupt Handler Table (within ROM) |
 
@@ -183,6 +192,8 @@ also has a 32-bit address range.
 In truth, most of the memory-mapped I/Os also have I/O map alias addresses. These can be more convenient,
 as the port addresses are generally closer to 0x00000000, and may simply be accessed as 16-bit offset from
 the r0 "zero" register.
+
+(I/O address 0x00000000 is the same as memory address 0x80000000)
 
 | From Address | To Address | Contents |
 |:------------:|:----------:|:--------:|

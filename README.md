@@ -164,7 +164,9 @@ programs, or handing off of data from one program to the next.
 | 0x00007C00 | 0x00007DFF | RAM (reserved for 'isolink' directory use)  |
 | 0x00007E00 | 0x00007FFF | RAM (reserved for BIOS use )  |
 | 0x00000000 | 0x001FFFFF | 2MB RAM; program start/user memory is normally at 0x8000 |
-| 0x00200000 | 0x9FFFFFFF | (**To Be Documented - includes many I/O areas and FX-SCSI memory area**) |
+| 0x00200000 | 0x7FFFFFFF | (**To Be Documented **) |
+| 0x80000000 | 0x8FFFFFFF | Alternate to Ports at 0x00000000 - see below |
+| 0x90000000 | 0x9FFFFFFF | (**To Be Documented**) |
 | 0xA0000000 | 0xA3FFFFFF | HuC6261 - To be documented separately |
 | 0xA4000000 | 0xA7FFFFFF | HuC6270(#0) - To be documented separately |
 | 0xA8000000 | 0xABFFFFFF | HuC6270(#1) - To be documented separately |
@@ -197,7 +199,21 @@ the r0 "zero" register.
 
 | From Address | To Address | Contents |
 |:------------:|:----------:|:--------:|
-| 0x00000000 | 0xFFFFFFFF | (**To Be Documented**) |
+| 0x00000000 | 0x000000C3 | Keyboard Port - To be documented separately |
+| 0x00000100 | 0x0000012D | HuC6230 - To be documented separately |
+| 0x00000200 | 0x00000215 | HuC6271 - To be documented separately |
+| 0x00000300 | 0x00000305 | HuC6261 - To be documented separately |
+| 0x00000400 | 0x00000405 | HuC6270(#0) - To be documented separately |
+| 0x00000500 | 0x00000505 | HuC6270(#1) - To be documented separately |
+| 0x00000600 | 0x00000607 | HuC6272 - To be documented separately |
+| 0x00000700 | 0x00000703 | Miscellaneous Onboard Register - To be documented separately |
+| 0x00000C00 | 0x00000C43 | HuC6270(#0 & #1) - To be documented separately |
+| 0x00000C80 | 0x00000C83 | Backup Memory Access control - To be documented separately |
+| 0x00000CC0 | 0x00000CC3 | Gate Array Version Register - To be documented separately |
+| 0x00000E00 | 0x00000EC3 | Interrupt Controller - To be documented separately |
+| 0x00000F00 | 0x00000FC3 | Timer - To be documented separately |
+| 0x00500000 | 0x0052FFFF | HuC6273 (only on PC-FXGA) - To be documented separately |
+| 0x00530000 | 0xFFFFFFFF | (**To Be Documented**) |
 
 
 

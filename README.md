@@ -160,13 +160,14 @@ programs, or handing off of data from one program to the next.
 
 | From Address | To Address | Contents |
 |:------------:|:----------:|:--------|
-| 0x00000000 | 0x00007BFF | RAM (general-purpose)  |
-| 0x00007C00 | 0x00007DFF | RAM (reserved for 'isolink' directory use)  |
-| 0x00007E00 | 0x00007FFF | RAM (reserved for BIOS use )  |
 | 0x00000000 | 0x001FFFFF | 2MB RAM; program start/user memory is normally at 0x8000 |
-| 0x00200000 | 0x7FFFFFFF | (**To Be Documented **) |
+| 0x00000000 | 0x00007BFF | -- RAM (general-purpose)  |
+| 0x00007C00 | 0x00007DFF | -- RAM (reserved for 'isolink' directory use)  |
+| 0x00007E00 | 0x00007FFF | -- RAM (reserved for BIOS use )  |
+| 0x00008000 | 0x001FFFFF | -- RAM (program load area)  |
+| 0x00200000 | 0x7FFFFFFF | (Reserved) |
 | 0x80000000 | 0x8FFFFFFF | Alternate to Ports at 0x00000000 - see below |
-| 0x90000000 | 0x9FFFFFFF | (**To Be Documented**) |
+| 0x90000000 | 0x9FFFFFFF | (Reserved) |
 | 0xA0000000 | 0xA3FFFFFF | HuC6261 - To be documented separately |
 | 0xA4000000 | 0xA7FFFFFF | HuC6270(#0) - To be documented separately |
 | 0xA8000000 | 0xABFFFFFF | HuC6270(#1) - To be documented separately |
@@ -175,13 +176,14 @@ programs, or handing off of data from one program to the next.
 | 0xB4000000 | 0xB7FFFFFF | HuC6270(#0) - To be documented separately |
 | 0xB8000000 | 0xBBFFFFFF | HuC6270(#1) - To be documented separately |
 | 0xBC000000 | 0xBFFFFFFF | HuC6272 - To be documented separately |
-| 0xC0000000 | 0xDFFFFFFF | (**Reserved**) |
-| 0xE0000000 | 0xE000FFFF | (32KB) PC-FX internal backup memory; would be 64KB, but only uses every second byte |
-| 0xE0010000 | 0xE7FFFFFF | Unused - but some could have been allocated for more internal memory |
-| 0xE8000000 | 0xE8FFFFFF | (8MB) FX-BMP memory; would be 16MB, but only uses every second byte |
-| 0xE9000000 | 0xE9FFFFFF | FX-BMP memory, but not usable - key address line not on bus |
-| 0xEA000000 | 0xEBFFFFFF | FX-BMP battery (bit 0 = '0' for low battery) |
-| 0xEC000000 | 0xFFEFFFFF | (**Reserved / To Be Documented**) |
+| 0xC0000000 | 0xDFFFFFFF | (Reserved) |
+| 0xE0000000 | 0xEBFFFFFF | Backup memory - only uses every second byte |
+| 0xE0000000 | 0xE000FFFF | -- INTERNAL (32KB) PC-FX internal backup memory; would be 64KB, but only uses every second byte |
+| 0xE0010000 | 0xE7FFFFFF | -- INTERNAL Unused - but some could have been allocated for more internal memory |
+| 0xE8000000 | 0xE8FFFFFF | -- EXTERNAL (8MB) FX-BMP memory; would be 16MB, but only uses every second byte |
+| 0xE9000000 | 0xE9FFFFFF | -- EXTERNAL FX-BMP memory, but not usable - key address line not on bus |
+| 0xEA000000 | 0xEBFFFFFF | -- EXTERNAL FX-BMP battery (bit 0 = '0' for low battery) |
+| 0xEC000000 | 0xFFEFFFFF | (Reserved) |
 | 0xFFF00000 | 0xFFFFFFFF | PC-FX BIOS ROM (1MB) |
 | 0xFFFFFE00 | 0xFFFFFFFF | Interrupt Handler Table (within ROM) |
 
@@ -199,21 +201,26 @@ the r0 "zero" register.
 
 | From Address | To Address | Contents |
 |:------------:|:----------:|:--------:|
-| 0x00000000 | 0x000000C3 | Keyboard Port - To be documented separately |
-| 0x00000100 | 0x0000012D | HuC6230 - To be documented separately |
-| 0x00000200 | 0x00000215 | HuC6271 - To be documented separately |
-| 0x00000300 | 0x00000305 | HuC6261 - To be documented separately |
-| 0x00000400 | 0x00000405 | HuC6270(#0) - To be documented separately |
-| 0x00000500 | 0x00000505 | HuC6270(#1) - To be documented separately |
-| 0x00000600 | 0x00000607 | HuC6272 - To be documented separately |
-| 0x00000700 | 0x00000703 | Miscellaneous Onboard Register - To be documented separately |
+| 0x00000000 | 0x000000FF | K Port (for controllers) - To be documented separately |
+| 0x00000100 | 0x000001FF | HuC6230 - To be documented separately |
+| 0x00000200 | 0x000002FF | HuC6271 - To be documented separately |
+| 0x00000300 | 0x000003FF | HuC6261 - To be documented separately |
+| 0x00000400 | 0x000004FF | HuC6270(#0) - To be documented separately |
+| 0x00000500 | 0x000005FF | HuC6270(#1) - To be documented separately |
+| 0x00000600 | 0x000006FF | HuC6272 - To be documented separately |
+| 0x00000700 | 0x000007FF | Miscellaneous Onboard Register - To be documented separately |
+| 0x00000800 | 0x00000BFF | (Reserved) |
 | 0x00000C00 | 0x00000C43 | HuC6270(#0 & #1) - To be documented separately |
 | 0x00000C80 | 0x00000C83 | Backup Memory Access control - To be documented separately |
 | 0x00000CC0 | 0x00000CC3 | Gate Array Version Register - To be documented separately |
-| 0x00000E00 | 0x00000EC3 | Interrupt Controller - To be documented separately |
-| 0x00000F00 | 0x00000FC3 | Timer - To be documented separately |
-| 0x00500000 | 0x0052FFFF | HuC6273 (only on PC-FXGA) - To be documented separately |
-| 0x00530000 | 0xFFFFFFFF | (**To Be Documented**) |
+| 0x00000E00 | 0x00000EFF | Interrupt Controller - To be documented separately |
+| 0x00000F00 | 0x00000FFF | Timer - To be documented separately |
+| 0x00001000 | 0x003FFFFF | (Reserved) |
+| 0x00400000 | 0x004000FF | Expansion I/O (No information found as yet) |
+| 0x00400100 | 0x004FFFFF | Expansion I/O (Reserved) |
+| 0x00500000 | 0x005FFFFF | HuC6273 (only on PC-FXGA) - To be documented separately |
+| 0x00600000 | 0x007FFFFF | Expansion I/O (Reserved) |
+| 0x00800000 | 0xFFFFFFFF | (Reserved) |
 
 
 

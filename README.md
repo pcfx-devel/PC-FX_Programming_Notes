@@ -178,9 +178,9 @@ programs, or handing off of data from one program to the next.
 | 0xBC000000 | 0xBFFFFFFF | HuC6272 - To be documented separately |
 | 0xC0000000 | 0xDFFFFFFF | (Reserved) |
 | 0xE0000000 | 0xEBFFFFFF | Backup memory - only uses every second byte |
-| 0xE0000000 | 0xE000FFFF | -- INTERNAL (32KB) PC-FX internal backup memory; would be 64KB, but only uses every second byte |
-| 0xE0010000 | 0xE7FFFFFF | -- INTERNAL Unused - but some could have been allocated for more internal memory |
-| 0xE8000000 | 0xE8FFFFFF | -- EXTERNAL (8MB) FX-BMP memory; would be 16MB, but only uses every second byte |
+| 0xE0000000 | 0xE000FFFF | -- INTERNAL (32KB) PC-FX internal backup memory |
+| 0xE0010000 | 0xE7FFFFFF | -- INTERNAL Unused (some could have been used for more internal memory) |
+| 0xE8000000 | 0xE8FFFFFF | -- EXTERNAL (8MB) FX-BMP memory |
 | 0xE9000000 | 0xE9FFFFFF | -- EXTERNAL FX-BMP memory, but not usable - key address line not on bus |
 | 0xEA000000 | 0xEBFFFFFF | -- EXTERNAL FX-BMP battery (bit 0 = '0' for low battery) |
 | 0xEC000000 | 0xFFEFFFFF | (Reserved) |
@@ -200,7 +200,7 @@ the r0 "zero" register.
 (I/O address 0x00000000 is the same as memory address 0x80000000)
 
 | From Address | To Address | Contents |
-|:------------:|:----------:|:--------:|
+|:------------:|:----------:|:---------|
 | 0x00000000 | 0x000000FF | K Port (for controllers) - To be documented separately |
 | 0x00000100 | 0x000001FF | HuC6230 - To be documented separately |
 | 0x00000200 | 0x000002FF | HuC6271 - To be documented separately |

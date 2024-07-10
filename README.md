@@ -57,11 +57,11 @@ If you are a programmer on embedded systems, a lot of the following information 
 you normally program computers on Windows or Linux, you may need to adjust your expectations of certain things.
 
  1. There is no Operating System; everything runs on the "bare metal".  What does this mean ?
-    - There is no operating system to detect abnormal situations and provide dumps.
-    - There is no pre-emptive multitasking.
-    - There is no multi-threading.  In fact, there is no concept of a "process" due to having no operating system.
-    - There is no filesystem, per se - although backup memory may share some characteristics with a filesystem.
-    - There is no console, per se - although some development tools may provide you with the capability of primitve communication
+   * There is no operating system to detect abnormal situations and provide dumps.
+   * There is no pre-emptive multitasking.
+   * There is no multi-threading.  In fact, there is no concept of a "process" due to having no operating system.
+   * There is no filesystem, per se - although backup memory may share some characteristics with a filesystem.
+   * There is no console, per se - although some development tools may provide you with the capability of primitve communication
 with the outside world.
 
  2. POSIX functions and libraries ARE provided, via newlib ( https://sourceware.org/newlib/ ), included with the v810-gcc compiler
@@ -76,14 +76,12 @@ the hardware to the limit of its capabilities without understanding hardware in 
 
  5. This is not a modern machine. The PC-FX is a 32-bit processor with many opcodes which may execute in 1-2 cycles, but
 don't make assumptions.
-    - The CPU runs at roughly 21MHz, and many interfaces to other hardware (such as KRAM) are able to "block" writes/reads,
+   * The CPU runs at roughly 21MHz, and many interfaces to other hardware (such as KRAM) are able to "block" writes/reads,
 potentially slowing down your program.  You will need to anticipate what is the best time to attempt reads/writes.
-    - Math is slow.  Multiplication is slow.  Division is probably a LOT slower than you think.
-    - The processor does have floating point support, but stay away from it if you value your cycles. It's even slower than division.
-    - There is no 3D on the base PC-FX, and 3D support is not scheduled for implementation into the library
+   * Math can be slow.  Multiplication is slow.  Division is probably a LOT slower than you think.
+   * The processor does have floating point support, but stay away from it if you value your cycles. It's even slower than division.
+   * There is no 3D on the base PC-FX, and 3D support is not scheduled for implementation into the library
 as there are very few PC-FXGA boards which contain the 3D chip. No emulators currently support 3D either.
-
-
 
 
 ## V810 CPU and the GNU Compiler

@@ -51,6 +51,41 @@ The **liberis-build.sh** script has been placed in this repository to build libe
    * Run the script from the parent folder of the liberis repository (i.e. if liberis is '$(HOME)/devel/liberis', then run the script from '$(HOME)/devel')
 
 
+### Notes About Programming on PC-FX
+
+If you are a programmer on embedded systems, a lot of the following information will probably sound familiar to you.  However, if
+you normally program computers on Windows or Linux, you may need to adjust your expectations of certain things.
+
+ 1. There is no Operating System; everything runs on the "bare metal".  What does this mean ?
+    - There is no operating system to detect abnormal situations and provide dumps.
+    - There is no pre-emptive multitasking.
+    - There is no multi-threading.  In fact, there is no concept of a "process" due to having no operating system.
+    - There is no filesystem, per se - although backup memory may share some characteristics with a filesystem.
+    - There is no console, per se - although some development tools may provide you with the capability of primitve communication
+with the outside world.
+
+ 2. POSIX functions and libraries ARE provided, via newlib ( https://sourceware.org/newlib/ ), included with the v810-gcc compiler
+package.  Some POSIX functionality may however be limited, due to the lack of an Operating System.
+
+ 3. You would do well to understand each of the hardware pieces, AT LEAST to the level of being able to initialize them,
+EVEN IF YOU DON'T PLAN TO USE THEM.  Uninitialized hardware can behave in unexpected ways, which may interfere with your
+program's behaviour.
+
+ 4. Although the library may attempt to provide some high-level functions to access the hardware, you will not be able to use
+the hardware to the limit of its capabilities without understanding hardware in detail.
+
+ 5. This is not a modern machine. The PC-FX is a 32-bit processor with many opcodes which may execute in 1-2 cycles, but
+don't make assumptions.
+    - The CPU runs at roughly 21MHz, and many interfaces to other hardware (such as KRAM) are able to "block" writes/reads,
+potentially slowing down your program.  You will need to anticipate what is the best time to attempt reads/writes.
+    - Math is slow.  Multiplication is slow.  Division is probably a LOT slower than you think.
+    - The processor does have floating point support, but stay away from it if you value your cycles. It's even slower than division.
+    - There is no 3D on the base PC-FX, and 3D support is not scheduled for implementation into the library
+as there are very few PC-FXGA boards which contain the 3D chip. No emulators currently support 3D either.
+
+
+
+
 ## V810 CPU and the GNU Compiler
 
 ### Alignment

@@ -61,8 +61,8 @@ you normally program computers on Windows or Linux, you may need to adjust your 
    * There is no pre-emptive multitasking.
    * There is no multi-threading.  In fact, there is no concept of a "process" due to having no operating system.
    * There is no filesystem, per se - although backup memory may share some characteristics with a filesystem.
-   * There is no console, per se - although some development tools may provide you with the capability of primitve communication
-with the outside world.
+   * There is no TTY/output window/logfile/etc., per se - although some development tools may provide you with the capability of
+primitve communication with the outside world.
 
  2. POSIX functions and libraries ARE provided, via newlib ( https://sourceware.org/newlib/ ), included with the v810-gcc compiler
 package.  Some POSIX functionality may however be limited, due to the lack of an Operating System.

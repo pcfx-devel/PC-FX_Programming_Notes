@@ -53,6 +53,8 @@ The **liberis-build.sh** script has been placed in this repository to build libe
 
 ### Notes About Programming on PC-FX
 
+#### Limitations Compared to Modern Computers
+
 If you are a programmer on embedded systems, a lot of the following information will probably sound familiar to you.  However, if
 you normally program computers on Windows or Linux, you may need to adjust your expectations of certain things.
 
@@ -82,6 +84,14 @@ potentially slowing down your program.  You will need to anticipate what is the 
    * The processor does have floating point support, but stay away from it if you value your cycles. It's even slower than division.
    * There is no 3D on the base PC-FX, and 3D support is not scheduled for implementation into the library
 as there are very few PC-FXGA boards which contain the 3D chip. No emulators currently support 3D either.
+
+
+#### Hints for Optimization
+
+ 1. Where it makes sense, use signed variables.  Unsigned variables tend to require the compiler to add additional opcodes.
+
+ 2. For reads and writes, if you're working with halfwords (16-bit variables), read and write halfwords where possible;
+this is faster than reading/writing full words (but 2 halfwords is slower than one full word).
 
 
 ## V810 CPU and the GNU Compiler

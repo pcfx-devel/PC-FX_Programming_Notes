@@ -146,7 +146,8 @@ x = function(a, b, c, d, e);
  - r7 recieves the value of 'b'
  - r8 recieves the value of 'c'
  - r9 recieves the value of 'd'
- - the value of 'e' is pushed onto the stack
+ - the value of 'e' is pushed onto the stack -> it's at 0[sp] (note that the calling
+function establishes the stack frame, not the called function)
  - the value in r10 is used as a return value, and is assigned back to 'x'
 
 ### GNU gcc 'C' Compiler Register Allocation

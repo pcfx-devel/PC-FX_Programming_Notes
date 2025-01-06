@@ -96,6 +96,36 @@ this is faster than reading/writing full words (but 2 halfwords is slower than o
 
 ## V810 CPU and the GNU Compiler
 
+### Processor Architecture
+
+#### Overview
+
+The V810 is a fairly simple single-pipeline RISC processor, without prefetch, branch prediction, or most
+of the optimization on modern (post-2000) processors.
+
+#### Pipeline
+
+The V810 uses a 5-stage pipeline, with a target of 1-cycle per stage (some opcodes require more cycles
+during execution). The pipeline needs to be refilled on any jump or branch instructions, which may appear
+as a 4-cyle penalty.
+
+The V810 has built-in wait states when accessing slow memory, or if there is a pipeline stall (i.e. instruction
+number 2 requires the result of a calculation which is the product of instruction number 1), so there is no need
+to force delay slots or NOPs into the code.
+
+As a result of both of the above statements, it is still somehwat simple (but not necessarily trivial) to count
+cycles when reviewing code.
+
+#### Cache
+
+The V810 has a 1K cache for instructions, organizaed into 128-entries of 8 bytes. This is presumably to assist when
+main memory requires more than 1 cycle to perform fetches of upcoming instrucitons.
+There is no Data Cache.
+
+Actual measurements with test programs comparing short loops against longer stretches of code - or with the cache
+disabled - in order to check the real-world impact on this machine's hardware.
+
+
 ### Alignment
 
 #### Code Alignment
